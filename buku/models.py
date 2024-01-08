@@ -35,6 +35,8 @@ class Buku(models.Model):
 
     def __str__(self):
         return self.judul
+    class Meta:
+        verbose_name_plural = "Data Buku"
 
 class GambarBuku(models.Model):
     buku = models.OneToOneField('Buku', on_delete=models.CASCADE, related_name='gambar')
@@ -42,3 +44,5 @@ class GambarBuku(models.Model):
 
     def __str__(self):
         return f"Gambar {self.buku.judul}"
+    class Meta: 
+        verbose_name_plural = "Gambar Buku"
