@@ -1,0 +1,29 @@
+<footer
+  class="dark flex w-full justify-center border-t py-4 dark:bg-gray-800"
+  x-data="{ darkMode: false }"
+  x-init="darkMode = localStorage.getItem('darkMode') === 'true'; document.documentElement.classList.toggle('dark', darkMode)"
+>
+  <label class="relative inline-flex cursor-pointer items-center">
+    <input
+      type="checkbox"
+      class="peer sr-only"
+      x-model="darkMode"
+      @change="toogleDarkMode"
+    />
+    <div
+      class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rtl:peer-checked:after:-translate-x-full dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"
+    ></div>
+    <span
+      :class="darkMode?'text-slate-300' : 'text-slate-900'"
+      class="ms-3 text-sm font-medium"
+      x-text="darkMode ? 'Light Mode' : 'Dark Mode'"
+    ></span>
+  </label>
+</footer>
+<script>
+  function toogleDarkMode() {
+    localStorage.setItem("darkMode", this.darkMode);
+
+    document.documentElement.classList.toggle("dark", this.darkMode);
+  }
+</script>

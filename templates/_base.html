@@ -1,0 +1,25 @@
+{% load static %} {% load livereload_tags %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock title %}</title>
+    <link
+      rel="shortcut icon"
+      href="{% static 'img/favicon.png' %} type='image/png'"
+    />
+    <link rel="stylesheet" href="{% static 'css/tailwind.css' %}" />
+    {% livereload_script %}
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body class="min-h-screen dark:bg-gray-900 dark:text-white">
+    {% include "navbar.html" %}
+    <main class="m-auto min-h-screen max-w-screen-xl pb-20">
+      {% block content %}{% endblock content %}
+    </main>
+    {% include "footer.html" %}
+  </body>
+</html>

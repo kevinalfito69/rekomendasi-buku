@@ -1,0 +1,115 @@
+{% extends "_base.html" %} {% block content %}
+<section
+  class="flex flex-col items-center justify-center gap-6 p-10 md:flex-row md:items-start"
+>
+  <img
+    class="h-1/5 w-1/5 object-cover"
+    src="{{buku.gambar.gambar.url}}"
+    alt="Sampul buku"
+  />
+  <div class="relative w-full max-w-xl overflow-x-auto shadow-md sm:rounded-lg">
+    <table
+      class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400"
+    >
+      <thead
+        class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400"
+      >
+        <tr>
+          <th scope="col" class="px-6 py-3 text-center text-[15px]" colspan="4">
+            {{ buku.judul }} {% if buku.anak_judul %}:
+            {{buku.anak_judul}}{%endif %}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="border-b odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800"
+        >
+          <th
+            scope="row"
+            class="whitespace-nowrap px-6 py-4 font-bold text-gray-900 dark:text-white"
+          >
+            Pengarang
+          </th>
+          <td class="px-6 py-4">{{buku.pengarang}}</td>
+          <th
+            scope="row"
+            class="whitespace-nowrap px-6 py-4 font-bold text-gray-900 dark:text-white"
+          >
+            Tempat Terbit
+          </th>
+          <td class="px-6 py-4">{{buku.tempat_terbit}}</td>
+        </tr>
+
+        <tr
+          class="border-b odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800"
+        >
+          <th
+            scope="row"
+            class="whitespace-nowrap px-6 py-4 font-bold text-gray-900 dark:text-white"
+          >
+            Tahun
+          </th>
+          <td class="px-6 py-4">{{buku.tahun}}</td>
+          <th
+            scope="row"
+            class="whitespace-nowrap px-6 py-4 font-bold text-gray-900 dark:text-white"
+          >
+            Topik
+          </th>
+          <td class="px-6 py-4">{{buku.topik}}</td>
+        </tr>
+        <tr
+          class="border-b odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800"
+        >
+          <th
+            scope="row"
+            class="whitespace-nowrap px-6 py-4 font-bold text-gray-900 dark:text-white"
+          >
+            Edisi
+          </th>
+          <td class="px-6 py-4">{{buku.edisi}}</td>
+          <th
+            scope="row"
+            class="whitespace-nowrap px-6 py-4 font-bold text-gray-900 dark:text-white"
+          >
+            ISBN
+          </th>
+          <td class="px-6 py-4">{{buku.isbn}}</td>
+        </tr>
+
+        <tr
+          class="border-b odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800"
+        >
+          <th
+            scope="row"
+            class="whitespace-nowrap px-6 py-4 font-bold text-gray-900 dark:text-white"
+          >
+            Penerbit
+          </th>
+          <td class="px-6 py-4">{{buku.penerbit}}</td>
+          <th
+            scope="row"
+            class="whitespace-nowrap px-6 py-4 font-bold text-gray-900 dark:text-white"
+          >
+            Ratting
+          </th>
+          <td class="px-6 py-4">
+            {% for _ in "x"|ljust:buku.rating_goodreads %} ⭐<!-- Simbol bintang unicode (☆) -->
+            {% endfor %} ({{ buku.get_rating_goodreads_display }}/5)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section id="sinopsis" class="px-4 md:px-28 md:py-24">
+  <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-300">
+    Sinopsis
+  </h2>
+  <div class="text-justify text-gray-700 dark:text-gray-400">
+    {{buku.sinopsis|safe}}
+  </div>
+</section>
+
+{% endblock content %}

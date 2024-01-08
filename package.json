@@ -1,0 +1,22 @@
+{
+  "name": "rekomendasi_buku",
+  "version": "1.0.0",
+  "description": "- Beranda - Rekomendasi Buku - Koleksi Buku - Buku terpopuler - Ulasan dan Ratting",
+  "main": "index.js",
+  "scripts": {
+    "tailwind": "npx tailwind -i ./static/css/input.css -o ./static/css/tailwind.css  --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.5.10"
+  }
+}
